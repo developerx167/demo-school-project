@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "env.bat && next dev",
+    "build": "env.bat && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +16,7 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
+    "next-auth": "^4.22.1",
     "postcss": "8.4.23",
     "rd-flexbutton": "^1.1.0",
     "react": "18.2.0",
