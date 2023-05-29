@@ -29,7 +29,7 @@ const CourseComp = () => {
     },[])
 
   return (
-    <section className='section flex flex-col gap-y-4'>
+    <section className='mt-20 section flex flex-col gap-y-4'>
         <div className='overflow-hidden'>
             
         <Slider {...settings}>
