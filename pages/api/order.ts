@@ -8,13 +8,19 @@ export interface ROrder extends Orders.RazorpayOrder {}
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ROrder>
+  res: NextApiResponse<ROrder | {}>
 ) {
     let instance = new Razorpay({
         key_id: process.env.RAZORPAY_API_KEY!,
         key_secret: process.env.RAZORPAY_API_SECRET!,
     });
-
-    const order = await instance.orders.create({amount : 400 * 100, currency : "INR"});
-    return res.status(200).json(order)
+    try {
+      const order = await instance.orders.create({amount : 400 * 100, currency : "INR"});
+      return res.status(200).json(order)
+      
+    } catch (error) {
+      console.log(error);
+      
+      return res.status(500).json({})
+    }
 }
