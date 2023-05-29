@@ -56,7 +56,7 @@ const Navbar = () => {
                     {   
                         session ?
 
-                        <div tabIndex={-1} onBlur={(e)=> !e.relatedTarget && setShowLogout(prev=>!prev)} className='relative'>
+                        <div tabIndex={-1} onBlur={(e)=> !e.relatedTarget && setShowLogout(prev=>false)} className='relative'>
                             <div onClick={()=>setShowLogout(prev=>!prev)} className='relative overflow-hidden h-[2rem] w-[2rem] rounded-full'>
                                 <Image fill src={session.user?.image ? session.user?.image : "/user.svg"} alt='userImage'></Image>
                             </div>
