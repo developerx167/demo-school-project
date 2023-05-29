@@ -5,6 +5,10 @@ const nextConfig = {
     domains : [
       "lh3.googleusercontent.com"
     ]
+  },
+  env : {
+    DOMAIN : process.env.DOMAIN,
+    RAZORPAY_API_KEY : process.env.RAZORPAY_API_KEY
   }
 }
 
