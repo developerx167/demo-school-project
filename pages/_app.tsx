@@ -6,6 +6,7 @@ import '@/styles/globals.css'
 import { SessionProvider } from "next-auth/react"
 import {QueryClientProvider,QueryClient} from "@tanstack/react-query"
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools"
+import Footer from '@/components/Footer/Footer';
 export default function App({ Component, pageProps : {session,...pageProps} }: AppProps) {
   const queryClient = new QueryClient();
   return(
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps : {session,...pageProps} }: A
           {process.env.NODE_ENV === "development" && <ReactQueryDevtools/>}
             <Navbar/>
             <Component {...pageProps} />
+            <Footer/>
         </QueryClientProvider>
       </SessionProvider>
   )

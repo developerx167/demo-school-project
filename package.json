@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "env.bat && next dev",
-    "build": "env.bat && next build",
+    "dev": "env && next dev",
+    "build": "env && next build",
     "start": "env && next start",
     "lint": "next lint"
   },
