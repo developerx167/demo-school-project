@@ -15,8 +15,6 @@ export default async function handler(
         return res.status(200).json({});
     }else{
         const student = await Student.findOne({email : session.user.email});
-        console.log(student);
-        
         return res.status(200).json(student);
     }
 }   
