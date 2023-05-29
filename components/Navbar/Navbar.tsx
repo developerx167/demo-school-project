@@ -15,7 +15,6 @@ const Navbar = () => {
         queryFn : getStudentData,
         
     })
-    console.log(data,status);
     
     
     const [isMenuOpen,setIsMenuOpen] = useState<boolean>(false);

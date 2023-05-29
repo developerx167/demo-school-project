@@ -56,7 +56,6 @@ const ProfileComp = () => {
       var rzp1 = new window.Razorpay(options);
       rzp1.open();
   };
-  console.log(pincode);
   
   return (
     <section className='section flex gap-y-4 flex-col'>

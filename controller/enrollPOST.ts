@@ -11,8 +11,6 @@ export default async function enrollPOST(req : NextApiRequest, res : NextApiResp
     if(!session){
         throw (new ErrorHandler({status : 401}));
     }
-    console.log(req.body);
-    
     const student = await Student.create({
         email : session.user?.email,
         address : {
