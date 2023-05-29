@@ -25,7 +25,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     // Note: Make sure not to redirect to the same page
     // To avoid an infinite loop!
     if (session) {
-      return { redirect: { destination: "/" } };
+      return { redirect: { destination: "/enroll" } };
     }
   
     const providers = await getProviders();

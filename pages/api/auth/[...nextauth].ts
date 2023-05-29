@@ -1,4 +1,6 @@
-import NextAuth from "next-auth"
+import { StudentData } from "@/sharedTypes/studentType";
+import NextAuth, { Session } from "next-auth"
+import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google"
 export const authOptions = {
   providers: [
@@ -7,6 +9,6 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET!,
     }),
   ],
-  secret : process.env.NEXTAUTH_SECRET
+  secret : process.env.NEXTAUTH_SECRET,
 }
 export default NextAuth(authOptions)

@@ -78,7 +78,7 @@ const CourseComp = () => {
                     </ul>
                     <p className="text-sm italic">* Enroll today and unlock your potential at the Shivansh School of Computer Science. Visit our website for more information and to explore our range of courses.</p>
                     <h3 className=''>₹400 <span className='text-xl text-gray-400 line-through'>₹600</span> <span className='text-xl font-normal text-red-500'>20% off</span></h3>
-                    <p className="text-sm font-semibold">Limited-Time Offer: Enroll now and get a <span className="discount-percentage">20% discount</span> on the Web Development and Design course! Don't miss out on this opportunity to enhance your skills at an unbeatable price.</p>
+                    <p className="text-sm font-semibold">Limited-Time Offer: Enroll now and get a <span className="discount-percentage">20% discount</span> on the Web Development and Design course! Don&#39;t miss out on this opportunity to enhance your skills at an unbeatable price.</p>
                     <Link className='link-button-style-primary' href={"/enroll"}>Enroll Now</Link>
                 </div>
             </div>

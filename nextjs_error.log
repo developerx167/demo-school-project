@@ -1,0 +1,5 @@
+Mon May 29 2023 03:53:54 GMT+0530 (India Standard Time)TypeError: Cannot read properties of null (reading 'useContext')
+    at Object.useContext (C:\Users\devx167\Desktop\New folder (7)\demo-school-project\node_modules\react\cjs\react.development.js:1618:21)
+    at useSession (C:\Users\devx167\Desktop\New folder (7)\demo-school-project\node_modules\next-auth\react\index.js:116:21)
+    at enrollPOST (webpack-internal:///(api)/./controller/enrollPOST.ts:19:84)
+

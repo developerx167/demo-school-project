@@ -5,9 +5,18 @@ import {FaUserGraduate} from "react-icons/fa"
 import {FiLogIn} from "react-icons/fi"
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import { useSession, signIn, signOut } from "next-auth/react"
+import {useQuery} from "@tanstack/react-query"
+import { getStudentData } from '@/queries/queryFunctions'
 const Navbar = () => {
     const { data: session } = useSession();
     const [showLogout,setShowLogout] = useState<boolean>();
+    const {data,status} = useQuery({
+        queryKey : ["studentData"],
+        queryFn : getStudentData,
+        
+    })
+    console.log(data,status);
+    
     
     const [isMenuOpen,setIsMenuOpen] = useState<boolean>(false);
     useEffect(()=>{
@@ -56,6 +65,7 @@ const Navbar = () => {
                                 showLogout &&
                                 <div className='flex flex-col gap-y-4 absolute top-[calc(100%+1rem)] right-0 p-4 bg-white shadow-lg rounded border'>
                                     <p className='line-clamp-1'>Signed In as {session.user?.name}</p>
+                                    <Link className='underline' href={'/profile'}>go to profile</Link>
                                     <button className='link-button-style-secondary whitespace-nowrap' onClick={() =>signOut()}><FiLogIn/>Sign Out</button>
                                 </div>
                             }
@@ -64,9 +74,9 @@ const Navbar = () => {
                         <Link className='link-button-style-secondary' href={'/sign-in'}><FiLogIn/>Sign In</Link>
                     }
                 </li>
-                <li>
-                    <Link className='link-button-style-primary' href={'/enroll'}><FaUserGraduate/>Enroll</Link>
-                </li>
+                    <li className={`${data?.paid ? 'hidden' : ''}`}>
+                        <Link className={`link-button-style-primary`} href={'/enroll'}><FaUserGraduate/>Enroll</Link>
+                    </li>
             </ul>
 
             <div className='md:hidden w-full flex items-center'>
@@ -89,14 +99,18 @@ const Navbar = () => {
                                         <Image fill src={session.user?.image ? session.user?.image : "/user.svg"} alt='userImage'></Image>
                                     </div>
                                     <p className='line-clamp-1'>Signed In as {session.user?.name}</p>
-                                    <button className='link-button-style-secondary whitespace-nowrap' onClick={() =>signOut()}><FiLogIn/>Sign Out</button>
+                                    <Link onClick={()=>setIsMenuOpen(false)} className='underline' href={'/profile'}>go to profile</Link>
+                                    <button className='link-button-style-secondary whitespace-nowrap' onClick={() =>{
+                                        signOut();
+                                    }}><FiLogIn/>Sign Out</button>
                             </div>
                             :
                             <Link className='link-button-style-secondary' href={'/sign-in'}><FiLogIn/>Sign In</Link>
                         }
                     </li>
-                    <li className='w-full'>
-                        <Link className='link-button-style-primary' href={'/enroll'}><FaUserGraduate/>Enroll</Link>
+                        
+                    <li className={`w-full ${data?.paid ? 'hidden' : ''}`}>
+                        <Link className={`link-button-style-primary`} href={'/enroll'}><FaUserGraduate/>Enroll</Link>
                     </li>
                 </ul>
             </div>
