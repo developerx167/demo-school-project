@@ -105,7 +105,7 @@ const Navbar = () => {
                                     }}><FiLogIn/>Sign Out</button>
                             </div>
                             :
-                            <Link className='link-button-style-secondary' href={'/sign-in'}><FiLogIn/>Sign In</Link>
+                            <Link onClick={()=>setIsMenuOpen(false)} className='link-button-style-secondary' href={'/sign-in'}><FiLogIn/>Sign In</Link>
                         }
                     </li>
                         
