@@ -2,26 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.link-button-style-primary{
+  @apply hover:bg-blue-800 px-6 p-3 bg-blue-700 text-white rounded flex justify-center items-center gap-x-4;
+}
+.link-button-style-secondary{
+  @apply hover:bg-yellow-800 px-6 p-3 bg-yellow-700 text-white rounded flex justify-center items-center gap-x-4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.section{
+  @apply mx-auto max-w-6xl p-4;
+}
+
+
+h1{
+  @apply font-bold text-gray-800 text-6xl;
+}
+h2{
+  @apply font-bold text-gray-800 text-5xl;
+}
+h3{
+  @apply font-bold text-gray-800 text-4xl;
+}
+h4{
+  @apply font-bold text-gray-800 text-3xl;
+}
+h5{
+  @apply font-bold text-gray-800 text-2xl;
+}
+h6{
+  @apply font-bold text-gray-800 text-xl;
+}
+
+.slick-slide{
+  @apply mx-10;
+}
+
+.observe{
+  transform: translateY(5rem);
+  opacity: 0;
+}
+
+
+
+.hero-text{
+  transform: translateY(5rem);
+  opacity: 0;
+  animation-name: hta;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.hero-button{
+  transform: translateY(5rem);
+  opacity: 0;
+  animation-name: hta;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-button-c{
+  clip-path: circle(0%);
+}
+.hbf:hover .hero-button-c{
+  clip-path: circle(100%);
+}
+
+@keyframes hta{
+  0%{
+    transform: translateY(5rem);
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  100%{
+    opacity: 100;
+    transform: translateY(0rem);
+  }
 }

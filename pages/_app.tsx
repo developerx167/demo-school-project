@@ -1,12 +1,22 @@
 import Navbar from '@/components/Navbar/Navbar'
-import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-
-export default function App({ Component, pageProps }: AppProps) {
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import '@/styles/globals.css'
+import { SessionProvider } from "next-auth/react"
+import {QueryClientProvider,QueryClient} from "@tanstack/react-query"
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools"
+import Footer from '@/components/Footer/Footer';
+export default function App({ Component, pageProps : {session,...pageProps} }: AppProps) {
+  const queryClient = new QueryClient();
   return(
-    <>
-      <Navbar/>
-      <Component {...pageProps} />
-    </>
+      <SessionProvider session={session}>
+        <QueryClientProvider client={queryClient}>
+          {process.env.NODE_ENV === "development" && <ReactQueryDevtools/>}
+            <Navbar/>
+            <Component {...pageProps} />
+            <Footer/>
+        </QueryClientProvider>
+      </SessionProvider>
   )
 }
